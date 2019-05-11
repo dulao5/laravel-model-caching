@@ -301,6 +301,7 @@ class CachedBuilder extends EloquentBuilder
         return $this->cache($cacheTags)
             ->rememberForever(
                 $hashedCacheKey,
+                config('cache.cache_expire'),
                 function () use ($arguments, $cacheKey, $method) {
                     return [
                         "key" => $cacheKey,
